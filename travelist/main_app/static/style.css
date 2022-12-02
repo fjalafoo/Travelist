@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(233, 218, 244);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  footer.page-footer {
+   background-color: rgb(49, 5, 90);
+   color:rgb(233, 218, 244);
+    padding-top: 0;
+    text-align: center;
+  }
+
+
+  .navbar-fixed{
+    background-color: rgb(49, 5, 90);
+   
+    
+  }
+  
+  .navItems {
+    color:rgb(233, 218, 244);
+    text-decoration: none;
+    list-style-type: none;  
+  }
