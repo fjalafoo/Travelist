@@ -13,20 +13,21 @@ A unique personalized dashboard travel bucket list.
     
 
 ## ERD:
-Travelist ERD:
+### Travelist ERD: <br />
 <img width="1419" alt="ERDs" src="https://user-images.githubusercontent.com/113799268/205458807-36b82090-6414-407b-950e-4302368a7648.png">
 
-User Model:
+### User Model: <br />
 <img width="599" alt="UserModel" src="https://user-images.githubusercontent.com/113799268/205458819-807af33c-6935-4a15-9c9c-c8f2f0a85452.png">
 
-Country Model:
+### Country Model: <br />
 <img width="599" alt="CountryModel" src="https://user-images.githubusercontent.com/113799268/205458826-7270a8dc-36fc-4ce2-9d66-b8208051aad6.png">
 
-Bucket Model:
+### Bucket Model: <br />
 <img width="595" alt="BucketModel" src="https://user-images.githubusercontent.com/113799268/205458830-b6827edc-7134-437c-8dff-fbd486fe8475.png">
 
-Review Model:
+### Review Model: <br />
 <img width="596" alt="ReviewModel" src="https://user-images.githubusercontent.com/113799268/205458837-9ded3154-8f31-4b98-8194-45376e064962.png">
+<br />
 
 ## Setup:
 
