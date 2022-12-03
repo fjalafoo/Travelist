@@ -13,11 +13,21 @@ A unique personalized dashboard travel bucket list.
     
 
 ## ERD:
-imgs
+Travelist ERD:
+
+User Model:
+
+Country Model:
+
+Bucket Model:
+
+Review Model:
+
 
 ## Setup:
 
 ## Tools Used:
+
 
 
 
