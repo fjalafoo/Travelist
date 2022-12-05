@@ -1,1 +1,21 @@
 <!-- detail page for each country, where buckets located -->
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>Countries</h1>
+<hr />
+
+{% for x in bahrian %}
+<p>Country: {{ x.name.common }}</p>
+
+
+{% endfor %}
+
+
+{% for x in c %}
+<p>Country: {{ x.name.common }}</p>
+
+
+{% endfor %}
+{% endblock %}

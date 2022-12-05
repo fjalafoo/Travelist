@@ -5,6 +5,15 @@ import uuid
 import boto3
 from .models import Country, Bucket, Review
 
+import requests
+import json
+
+# c = requests.get('https://restcountries.com/v3.1/all')
+# bahrain = requests.get('https://restcountries.com/v3.1/name/bahrain')
+
+# data = bahrain.text
+# json.loads(data)
+
 
 # Create your views here.
 
@@ -26,3 +35,12 @@ def tips(request):
 # Define the contact view
 def contact(request):
   return render(request, 'contact.html')
+
+
+
+# Define the country details view
+def countries_details(request):
+  bahrain = requests.get('https://restcountries.com/v3.1/name/bahrain')
+  c = requests.get('https://restcountries.com/v3.1/all')
+  print(list(bahrain.json()))
+  return render(request, 'countries/details.html', { 'bahrian': bahrain.json(), 'c': c.json() })
