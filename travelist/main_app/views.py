@@ -16,3 +16,8 @@ def home(request):
 # Define the about view
 def about(request):
   return render(request, 'about.html')
+
+
+# Define the travel tips view
+def tips(request):
+  return render(request, 'tips.html')
