@@ -21,3 +21,8 @@ def about(request):
 # Define the travel tips view
 def tips(request):
   return render(request, 'tips.html')
+
+
+# Define the contact view
+def contact(request):
+  return render(request, 'contact.html')
