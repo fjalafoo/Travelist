@@ -5,17 +5,30 @@
 {% block content %}
 <h1>Countries</h1>
 <hr />
-
+<!-- 
 {% for x in bahrian %}
 <p>Country: {{ x.name.common }}</p>
 
 
-{% endfor %}
+{% endfor %} -->
 
+<div class="countriesContainer">
+   {% for x in c %} 
+        <div class="countryCotainer">
 
-{% for x in c %}
-<p>Country: {{ x.name.common }}</p>
+            <h3>{{ x.name.common }}</h3>
+            <img src="{{x.flags.png}}" alt="" heigth="200" width="400">
+            <p>Region: {{ x.region }}</p>
+            <p>Capital: {{ x.capital }}</p>
+            <p>Currenices: {{ x.currines }}</p>
+            <p>Population: {{ x.population }}</p>
+            <p>Timezone: {{ x.timezone }}</p>
+            <p>Languages: {{ x.languages }}</p>
 
+            <hr />
+       
+        </div>
+     {% endfor %}
+</div>
 
-{% endfor %}
 {% endblock %}

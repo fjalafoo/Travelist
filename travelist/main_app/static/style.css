@@ -34,3 +34,17 @@ body {
     padding-top: 0;
     text-align: center;
   }
+
+  .countriesContainer {
+    display: flex;
+    padding: 2%;
+    margin: 15px;
+    flex-wrap: wrap;
+}
+  
+
+  .countryContainer {
+   margin: 2%;
+  }
+
+
