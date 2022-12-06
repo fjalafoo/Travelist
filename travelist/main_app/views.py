@@ -5,8 +5,10 @@ import uuid
 import boto3
 from .models import Country, Bucket, Review
 from django.contrib.auth import login
-from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView
+
 
 import requests
 import json
@@ -59,13 +61,19 @@ def contact(request):
 
 
 
-#Define the country details view
-def countries_details(request):
-  return render(request, 'countries/details.html')
-
 # Define the country index view
 def countries_index(request):
-  bahrain = requests.get('https://restcountries.com/v3.1/name/bahrain')
   c = requests.get('https://restcountries.com/v3.1/all')
-  print(list(bahrain.json()))
-  return render(request, 'countries/index.html', { 'bahrian': bahrain.json(), 'c': c.json() })
+  return render(request, 'countries/index.html', { 'c': c.json() })
+
+
+#Define the country details view
+def countries_details(request, country_id):
+  country = Country.objects.get(id=country_id)
+  return render(request, 'countries/details.html', { 'country': country })
+
+
+class CountryCreate(CreateView):
+  model = Country
+  fields = ['name', 'flag', 'language', 'currency']
+  success_url = '/countries/'

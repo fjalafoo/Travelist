@@ -26,7 +26,7 @@
                     <li  class="navItems"><a href="{% url 'tips' %}">Travel Tips</a></li>
                     <li  class="navItems"><a href="{% url 'contact' %}">Contact us</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'about' %}">Add Country</a></li>
+                    <li><a href="{% url 'countries_create' %}">Add Country</a></li>
                     <li><a href="{% url 'about' %}">View All Countries</a></li>
                     <li><a href="{% url 'about' %}">Add a Bucket</a></li>
                     <li><a href="{% url 'about' %}">View All My Buckets</a></li>
