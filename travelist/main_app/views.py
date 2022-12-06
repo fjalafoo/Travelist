@@ -38,9 +38,13 @@ def contact(request):
 
 
 
-# Define the country details view
+#Define the country details view
 def countries_details(request):
+  return render(request, 'countries/details.html')
+
+# Define the country index view
+def countries_index(request):
   bahrain = requests.get('https://restcountries.com/v3.1/name/bahrain')
   c = requests.get('https://restcountries.com/v3.1/all')
   print(list(bahrain.json()))
-  return render(request, 'countries/details.html', { 'bahrian': bahrain.json(), 'c': c.json() })
+  return render(request, 'countries/index.html', { 'bahrian': bahrain.json(), 'c': c.json() })
