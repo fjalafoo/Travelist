@@ -17,12 +17,16 @@ class Bucket(models.Model):
     location = models.TextField(max_length=500)
     budget = models.CharField(max_length=30)
     description = models.TextField(max_length=400)
+     # Create a country_id FK
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
 
 
 # Review model
 class Review(models.Model):
     description = models.TextField(max_length=400)
+    bucket = models.ForeignKey(Bucket, on_delete=models.CASCADE)
+
 
 
 
