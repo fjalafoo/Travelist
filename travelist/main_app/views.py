@@ -57,6 +57,9 @@ class CountryCreate(LoginRequiredMixin, CreateView):
 def home(request):
   return render(request, 'home.html')
 
+# Define the thanks view
+def thanks(request):
+  return render(request, 'thanks.html')
 
 # Define the about view
 def about(request):
