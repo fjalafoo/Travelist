@@ -7,9 +7,15 @@ from django.contrib.auth.models import User
 class Country(models.Model):
 
     name = models.CharField(max_length=100)
-    flag = models.TextField(max_length=500)
+    officialname = models.CharField(max_length=200)
+    capital = models.CharField(max_length=200)
+    flag = models.TextField(max_length=900)
     language = models.CharField(max_length=20)
     currency = models.CharField(max_length=30)
+    region = models.CharField(max_length=100)
+    population = models.CharField(max_length=200)
+    
+    
 
     # Add the foreign key linking to a user instance
     user = models.ForeignKey(User, on_delete=models.CASCADE)
