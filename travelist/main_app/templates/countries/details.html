@@ -3,9 +3,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Country Details</h1>
-<hr />
 
+<ul>
+  <h5> <li>Official name: {{ country.officialname }}</li></h5>
+  <h5><li>Region: {{ country.region }}</li></h5>
+  <h5><li>Capital: {{ country.capital }}</li></h5>
+  <h5><li>Currenices: {{ country.currency }}</li></h5>
+  <h5><li>Population: {{ country.population }}</li></h5>
+  <h5><li>Language: {{ country.language }}</li></h5>
 
+</ul>
+<h5><a href="{% url 'countries_update' country.id %}">Edit   </a> | <a href="{% url 'countries_delete' country.id %}">   Delete </a></h5>
 <div class="row">
     <div class="col s12 m6">
       

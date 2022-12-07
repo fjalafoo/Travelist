@@ -6,8 +6,6 @@ import boto3
 from .models import Country, Bucket, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -49,6 +47,15 @@ class CountryCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)
+
+
+class CountryUpdate(UpdateView):
+  model = Country
+  fields = ['language', 'currency', 'population']
+
+class CountryDelete(DeleteView):
+  model = Country
+  success_url = '/countries/'
 
 
 
@@ -93,7 +100,4 @@ def countries_index(request):
 #Define the country details view
 def countries_details(request, country_id):
   country = Country.objects.get(id=country_id)
-  return render(request, 'countries/details.html', { 'country': country })
-
-
-
+  return render(request, 'countries/details.html', { 'country': country})

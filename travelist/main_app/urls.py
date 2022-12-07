@@ -9,6 +9,8 @@ urlpatterns = [
   path('countries/', views.countries_index, name='countries'),
   path('countries/<int:country_id>/', views.countries_details, name='details'),
   path('countries/create/', views.CountryCreate.as_view(), name='countries_create'),
+   path('countriess/<int:pk>/update/', views.CountryUpdate.as_view(), name='countries_update'),
+  path('countries/<int:pk>/delete/', views.CountryDelete.as_view(), name='countries_delete'),
    path('thanks/', views.thanks, name='thanks'),
   path('accounts/signup/', views.signup, name='signup'),
 
