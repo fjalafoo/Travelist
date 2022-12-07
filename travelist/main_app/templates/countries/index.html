@@ -7,38 +7,47 @@
 <h1>Countries</h1>
 <hr />
 
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card red lighten-3">
+      <div class="card-content white-text">
+        <a href="{% url 'countries_create' %}"><span class="card-title">ADD NEW COUNTRY</span></a>
+        <p>New adventures await! Add a new country to visit and check off your list of world tour!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="row">
     <div class="col s12 m6">
-    {% for country in countrys %}
       
-      <div class="card">
-        <div class="card-image">
-          
-          <img src="{{ country.flag }}">
-         
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
-        </div>
-        <div class="card-content">
-          <a href="/countries/{{ country.id }}"><span class="card-title">{{ country.name }}</span></a>
+    {% for country in countrys %}
+    <div class="card medium">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="{{ country.flag }}">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><a href="/countries/{{ country.id }}">{{ country.name }}</a><i class="material-icons right">MORE</i></span>
+
+      </div>
+      <div class="card-reveal">
+        
+        <span class="card-title grey-text text-darken-4">{{ country.name }}<i class="material-icons right">close</i></span>
             <p>Official name: {{ country.officialname }}</p>
             <p>Region: {{ country.region }}</p>
             <p>Capital: {{ country.capital }}</p>
             <p>Currenices: {{ country.currency }}</p>
             <p>Population: {{ country.population }}</p>
             <p>Language: {{ country.language }}</p>
-        </div>
       </div>
+    </div>
+    
       {% endfor %} 
     </div>
   </div>
     
 
-{% for x in bahrian %}
-<p>Country: {{ x.name.common }}</p>
-
-
-{% endfor %} 
 {% endblock %}
 
 
@@ -48,6 +57,22 @@
 
 
 
+      <!-- <div class="card">
+        <div class="card-image">
+          
+          <img src="{{ country.flag }}">
+         
+        </div>
+        <div class="card-content">
+          c<span class="card-title">{{ country.name }}</span></a>
+            <p>Official name: {{ country.officialname }}</p>
+            <p>Region: {{ country.region }}</p>
+            <p>Capital: {{ country.capital }}</p>
+            <p>Currenices: {{ country.currency }}</p>
+            <p>Population: {{ country.population }}</p>
+            <p>Language: {{ country.language }}</p>
+        </div>
+      </div> -->
 
 
 

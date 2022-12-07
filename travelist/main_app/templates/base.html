@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css2/style.css' %}"/>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css3/style.css' %}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
     <title>Travelist</title>
    
@@ -26,8 +26,8 @@
                     <li  class="navItems"><a href="{% url 'tips' %}">Travel Tips</a></li>
                     <li  class="navItems"><a href="{% url 'contact' %}">Contact us</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'countries_create' %}">Add Country</a></li>
-                    <li><a href="{% url 'about' %}">View All Countries</a></li>
+                    <!-- <li><a href="{% url 'countries_create' %}">Add Country</a></li> -->
+                    <li><a href="{% url 'countries' %}">View All Countries</a></li>
                     <li><a href="{% url 'about' %}">Add a Bucket</a></li>
                     <li><a href="{% url 'about' %}">View All My Buckets</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
