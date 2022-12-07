@@ -15,3 +15,23 @@ body {
     text-align: right;
   }
   
+
+.mycarousel {
+  display: flex;
+  overflow-x: scroll;
+  
+}
+
+.mycarousel-item {
+  margin-right: 80px;
+}
+
+h3 {
+  color: brown;
+  
+}
+
+h5 li {
+  font-weight: 300;
+  line-height: 30px;
+}
