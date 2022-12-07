@@ -16,8 +16,6 @@ import json
 # c = requests.get('https://restcountries.com/v3.1/all')
 # bahrain = requests.get('https://restcountries.com/v3.1/name/bahrain')
 
-# data = bahrain.text
-# json.loads(data)
 
 
 # Create your views here.
@@ -97,7 +95,40 @@ def countries_index(request):
   countrys = Country.objects.filter(user=request.user)
   return render(request, 'countries/index.html', { 'countrys': countrys })
 
+
+
+
+
 #Define the country details view
 def countries_details(request, country_id):
   country = Country.objects.get(id=country_id)
   return render(request, 'countries/details.html', { 'country': country})
+
+
+def buckets_index(request):
+  buckets = Bucket.objects.filter(country_id=country_id)
+  return render(request, 'buckets/bindex.html', { 'buckets': buckets })
+
+#Define the bucket details view
+def buckets_details(request, bucket_id):
+  buckets = Bucket.objects.get(id=bucket_id)
+  return render(request, 'buckets/bdetails.html', { 'buckets': buckets })
+
+
+class BucketCreate(CreateView):
+  model = Bucket
+  fields = '__all__'
+
+  def form_valid(self, form):
+    form.instance.country = self.request.country  
+    return super().form_valid(form)
+
+
+class BucketUpdate(UpdateView):
+  model = Bucket
+  fields = '__all__'
+
+class BucketDelete(DeleteView):
+  model = Bucket
+  success_url = '/buckets/'
+

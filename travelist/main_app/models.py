@@ -41,6 +41,13 @@ class Bucket(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('details', kwargs={'bucket_id': self.id})
+  
+
 
 
 
@@ -49,6 +56,14 @@ class Review(models.Model):
     description = models.TextField(max_length=400)
     # Create a bucket_id FK
     bucket = models.ForeignKey(Bucket, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('details', kwargs={'review_id': self.id})
+  
 
    
 
