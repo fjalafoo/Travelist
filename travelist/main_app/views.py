@@ -8,6 +8,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 import requests
@@ -40,6 +42,17 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
+class CountryCreate(LoginRequiredMixin, CreateView):
+  model = Country
+  fields = ['name', 'officialname', 'capital', 'flag', 'language', 'currency', 'region', 'population']
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)
+
+
+
+
 # Define the home view
 def home(request):
   return render(request, 'home.html')
@@ -61,25 +74,23 @@ def contact(request):
 
 
 
-# Define the country index view
-def countries_index(request):
-  c = requests.get('https://restcountries.com/v3.1/all')
-  return render(request, 'countries/index.html', { 'c': c.json() })
+# # Define the country index view
+# def countries_index(request):
+#   # c = requests.get('https://restcountries.com/v3.1/all')
+#   # return render(request, 'countries/index.html', { 'c': c.json() })
+#   return render(request, 'countries/index.html', { 'countrys': countrys })
 
+
+
+@login_required
+def countries_index(request):
+  countrys = Country.objects.filter(user=request.user)
+  return render(request, 'countries/index.html', { 'countrys': countrys })
 
 #Define the country details view
 def countries_details(request, country_id):
   country = Country.objects.get(id=country_id)
   return render(request, 'countries/details.html', { 'country': country })
 
-
-class CountryCreate(CreateView):
-  model = Country
-  fields = ['name', 'officialname', 'capital', 'flag', 'language', 'currency', 'region', 'population']
-  success_url = '/countries/'
-
-  def form_valid(self, form):
-    form.instance.user = self.request.user 
-    return super().form_valid(form)
 
 
