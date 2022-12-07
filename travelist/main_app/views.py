@@ -75,5 +75,11 @@ def countries_details(request, country_id):
 
 class CountryCreate(CreateView):
   model = Country
-  fields = ['name', 'flag', 'language', 'currency']
+  fields = ['name', 'officialname', 'capital', 'flag', 'language', 'currency', 'region', 'population']
   success_url = '/countries/'
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user 
+    return super().form_valid(form)
+
+
